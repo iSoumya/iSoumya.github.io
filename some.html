@@ -31,9 +31,13 @@
                 if(mediaItems.length>0){
                 var imgStr ="";
                 mediaItems.forEach(function(mediaElement){
-                  imgStr += "<img src="+ mediaElement.baseUrl+"/><br/>";
+                  var elem = document.createElement("img");
+                  elem.setAttribute("src", mediaElement.baseUrl);
+                  elem.setAttribute("height", mediaElement.mediaMetadata.height);
+                  elem.setAttribute("width", mediaElement.mediaMetadata.width);
+                  elem.setAttribute("alt", mediaElement.filename);
+                  document.getElementById("images").appendChild(elem);
                 });
-                document.getElementById("images").innerHtml = imgStr;
                 }
               },
               function(err) { console.error("Execute error", err); });
