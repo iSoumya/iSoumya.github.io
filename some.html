@@ -25,7 +25,16 @@
       "pageSize": 100
     }).then(function(response) {
                 // Handle the results here (response.result has the parsed body).
-                console.log("Response", response);
+                //console.log("Response", response);
+                var resBody = JSON.parse(response.body);
+                var mediaItems = resBody.mediaItems;
+                if(mediaItems.length>0){
+                var imgStr ="";
+                mediaItems.forEach(function(mediaElement){
+                  imgStr += "<img src="+ mediaElement.baseUrl+"/><br/>";
+                });
+                document.getElementById("images").innerHtml = imgStr;
+                }
               },
               function(err) { console.error("Execute error", err); });
   }
@@ -35,5 +44,7 @@
 </script>
 <button onclick="authenticate().then(loadClient)">authorize and load</button>
 <button onclick="execute()">execute</button>
+<div id="images">
+</div>
 
 </html>
