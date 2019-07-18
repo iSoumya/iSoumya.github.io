@@ -1,0 +1,24 @@
+<mvc:View controllerName="com.yp.YoutubeProject.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+xmlns:ytv="com.yp.YoutubeProject.control"
+	displayBlock="true" xmlns="sap.m">
+	<App id="idAppControl">
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<ScrollContainer
+					horizontal="true"
+					vertical="false"
+					focusable="false">
+					<HBox id="ytcontainer">
+						<ytv:YTVideo videoID="abc1" youtubeLink="https://youtu.be/902pVMQVXJI" title="Honor 7x Detailed Review | After an Intense 2 Months use | Huawei India" select="onSelectV"></ytv:YTVideo>
+						<ytv:YTVideo  videoID="abc2" youtubeLink="https://youtu.be/XpdVstUyygA" title="Huawei P Smart - Huawei's new Killer Budget Smartphone!" select="onSelectV" ></ytv:YTVideo>
+						<ytv:YTVideo  videoID="abc3" youtubeLink="https://youtu.be/tkWF0-kofB8" title="Huawei Nova 2S - Best Budget Smartphone Ever" select="onSelectV"></ytv:YTVideo>
+					</HBox>
+					</ScrollContainer>
+					<Button class="sapUiSmallMargin" type="Accept" text="Add New" icon="sap-icon://add" press="onAddNew" ariaLabelledBy="editButtonLabel"/>
+					<Button class="sapUiSmallMargin" icon="sap-icon://delete" text="Delete All" press="onDeleteAll" type="Reject" ariaLabelledBy="editButtonLabel"/>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
